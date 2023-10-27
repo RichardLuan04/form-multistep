@@ -25,6 +25,35 @@ header h2 {
     margin: 0 auto;
 }
 
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    margin-bottom: 2rem;
+}
+
 .inputs-container {
     min-height: 280px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.actions button {
+    font-size: .9rem;
+    padding: .5rem 1rem;
+    gap: .5rem;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #dfdfdf;
+    cursor: pointer;
+    border: none;
+    transition: 300ms;
+}
+
+.actions button:hover {
+    background-color: #cfcfcf;
 }
