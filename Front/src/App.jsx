@@ -10,13 +10,30 @@ import Steps from './components/Steps/Steps'
 
 import './App.css'
 
+const formTemplate = {
+	name: "",
+	email: "",
+	review: "",
+	comment: ""
+}
+
 function App() {
 
-	const formComponents = [<UserForm />, <ReviewForm />, <Thanks />]
+	const [data, setData] = useState(formTemplate)
+
+	const updateFieldHandler = (key, value) => {
+		setData(preview => {
+			return {...preview, [key]: value}
+		})
+	}
+
+	const formComponents = [
+		<UserForm data={data} updateFieldHandler={updateFieldHandler} />, 
+		<ReviewForm data={data} updateFieldHandler={updateFieldHandler} />, 
+		<Thanks data={data} />
+	]
 
 	const { currentStep, currentComponent, changeStep, isFirstStep, isLatestStep } = UseForm(formComponents)
-
-	const [data, setData] = useState()
 
 	return (
 		<div className="app">
